@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayush Sharma - Software Developer</title>
+    <meta name="description" content="Computer Vision & AI Specialist crafting next-generation quality inspection systems">
+    <meta name="keywords" content="software developer, computer vision, AI, machine learning, quality inspection">
+    <meta name="author" content="Ayush Sharma">
+    <meta property="og:title" content="Ayush Sharma - Software Developer">
+    <meta property="og:description" content="Computer Vision & AI Specialist crafting next-generation quality inspection systems">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #1d1d1f;
+            background: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Grain Effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(29, 29, 31, 0.02) 1px, transparent 1px),
+                radial-gradient(circle at 75% 75%, rgba(29, 29, 31, 0.02) 1px, transparent 1px),
+                radial-gradient(circle at 50% 50%, rgba(29, 29, 31, 0.01) 1px, transparent 1px);
+            background-size: 20px 20px, 30px 30px, 15px 15px;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 12px 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 24px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1d1d1f;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #1d1d1f;
+            font-weight: 400;
+            transition: opacity 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.7;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #ffffff 0%, #f5f5f7 100%);
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 24px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 8vw, 96px);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            color: #1d1d1f;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(24px, 4vw, 36px);
+            font-weight: 300;
+            color: #86868b;
+            margin-bottom: 16px;
+        }
+
+        .hero-description {
+            font-size: 21px;
+            color: #1d1d1f;
+            margin-bottom: 48px;
+            opacity: 0.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #1d1d1f;
+            color: white;
+            padding: 16px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: #424245;
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        .section {
+            padding: 120px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 24px;
+            padding-right: 24px;
+        }
+
+        .section-title {
+            font-size: clamp(48px, 6vw, 64px);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 80px;
+            color: #1d1d1f;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #1d1d1f;
+        }
+
+        .about-text p {
+            font-size: 18px;
+            color: #86868b;
+            margin-bottom: 24px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            margin-top: 48px;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 32px;
+            background: #f5f5f7;
+            border-radius: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .stat:hover {
+            transform: translateY(-8px);
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: #1d1d1f;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            color: #86868b;
+        }
+
+        /* Education Section */
+        .education-card {
+            background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%);
+            border-radius: 24px;
+            padding: 48px;
+            margin-bottom: 32px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .education-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(29, 29, 31, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .education-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 24px;
+        }
+
+        .education-degree {
+            font-size: 28px;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 8px;
+        }
+
+        .education-university {
+            font-size: 18px;
+            color: #86868b;
+            margin-bottom: 4px;
+        }
+
+        .education-location {
+            font-size: 16px;
+            color: #86868b;
+        }
+
+        .education-period {
+            font-size: 16px;
+            color: #86868b;
+            font-weight: 500;
+        }
+
+        .education-gpa {
+            background: #1d1d1f;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 20px;
+            font-size: 18px;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 16px;
+        }
+
+        /* Experience Section */
+        .experience-card {
+            background: #f5f5f7;
+            border-radius: 24px;
+            padding: 48px;
+            margin-bottom: 32px;
+            transition: all 0.3s ease;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 24px;
+        }
+
+        .experience-title {
+            font-size: 28px;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 8px;
+        }
+
+        .experience-company {
+            font-size: 18px;
+            color: #86868b;
+            margin-bottom: 4px;
+        }
+
+        .experience-period {
+            font-size: 16px;
+            color: #86868b;
+            font-weight: 500;
+        }
+
+        .experience-description {
+            font-size: 16px;
+            color: #1d1d1f;
+            margin-bottom: 24px;
+        }
+
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 16px;
+        }
+
+        .highlight {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            font-size: 14px;
+            color: #1d1d1f;
+            border-left: 4px solid #1d1d1f;
+        }
+
+        /* Certifications Section */
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+
+        .certification-card {
+            background: #f5f5f7;
+            border-radius: 20px;
+            padding: 32px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .certification-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #1d1d1f 0%, #86868b 100%);
+        }
+
+        .certification-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .certification-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 12px;
+        }
+
+        .certification-provider {
+            font-size: 16px;
+            color: #86868b;
+            margin-bottom: 8px;
+        }
+
+        .certification-period {
+            font-size: 14px;
+            color: #86868b;
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        .certification-description {
+            font-size: 15px;
+            color: #1d1d1f;
+            line-height: 1.5;
+        }
+
+        .certification-status {
+            display: inline-block;
+            background: #1d1d1f;
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 16px;
+        }
+
+        .certification-status.ongoing {
+            background: #007AFF;
+        }
+
+        .certification-status.completed {
+            background: #34C759;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .skill-category {
+            background: #f5f5f7;
+            padding: 32px;
+            border-radius: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-8px);
+        }
+
+        .skill-category h3 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 20px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: #1d1d1f;
+            font-weight: 500;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: #f5f5f7;
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact h2 {
+            font-size: 48px;
+            font-weight: 700;
+            color: #1d1d1f;
+            margin-bottom: 24px;
+        }
+
+        .contact p {
+            font-size: 21px;
+            color: #86868b;
+            margin-bottom: 48px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: inline-block;
+            background: white;
+            color: #1d1d1f;
+            padding: 16px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .contact-link:hover {
+            background: #1d1d1f;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .education-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .highlights {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 24px;
+            height: 40px;
+            border: 2px solid #1d1d1f;
+            border-radius: 12px;
+            opacity: 0.6;
+        }
+
+        .scroll-indicator::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 8px;
+            background: #1d1d1f;
+            border-radius: 2px;
+            animation: scroll 2s infinite;
+        }
+
+        @keyframes scroll {
+            0%, 20% { transform: translateX(-50%) translateY(0); opacity: 1; }
+            100% { transform: translateX(-50%) translateY(16px); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="logo">Ayush Sharma</div>
+            <ul class="nav-links">
+                <li><a onclick="scrollToSection('about')">About</a></li>
+                <li><a onclick="scrollToSection('education')">Education</a></li>
+                <li><a onclick="scrollToSection('experience')">Experience</a></li>
+                <li><a onclick="scrollToSection('certifications')">Certifications</a></li>
+                <li><a onclick="scrollToSection('skills')">Skills</a></li>
+                <li><a onclick="scrollToSection('contact')">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Ayush Sharma</h1>
+            <div class="hero-subtitle">Software Developer</div>
+            <p class="hero-description">Computer Vision & AI Specialist crafting next-generation quality inspection systems</p>
+            <button class="cta-button" onclick="scrollToSection('about')">Discover My Work</button>
+        </div>
+        <div class="scroll-indicator"></div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <h2 class="section-title fade-in">About</h2>
+        <div class="about-grid">
+            <div class="about-text fade-in">
+                <h3>Innovating Through Technology</h3>
+                <p>Dynamic Software Developer with 1 year of specialized experience in computer vision and AI-based quality inspection systems. I transform complex technical challenges into elegant, efficient solutions.</p>
+                <p>From real-time defect detection to industrial automation, I've helped companies achieve micron-level precision while reducing operational costs and improving delivery speed.</p>
+            </div>
+            <div class="stats fade-in">
+                <div class="stat">
+                    <div class="stat-number">40%</div>
+                    <div class="stat-label">Manual Effort Reduced</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">95%</div>
+                    <div class="stat-label">Performance Improvement</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">4+</div>
+                    <div class="stat-label">Clients Acquired</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">8.62</div>
+                    <div class="stat-label">CGPA Achieved</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section">
+        <h2 class="section-title fade-in">Education</h2>
+        <div class="education-card fade-in">
+            <div class="education-header">
+                <div>
+                    <div class="education-degree">Bachelor of Technology</div>
+                    <div class="education-university">Mechanical Engineering</div>
+                    <div class="education-university">Sandip University SOET</div>
+                    <div class="education-location">Nashik, Maharashtra</div>
+                </div>
+                <div class="education-period">June 2019 - May 2023</div>
+            </div>
+            <div class="education-gpa">CGPA: 8.62</div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <h2 class="section-title fade-in">Experience</h2>
+        <div class="experience-card fade-in">
+            <div class="experience-header">
+                <div>
+                    <div class="experience-title">Software Developer</div>
+                    <div class="experience-company">CVIT Solution Pvt. Ltd. - Pune, Maharashtra</div>
+                </div>
+                <div class="experience-period">Aug 2024 – Present</div>
+            </div>
+            <p class="experience-description">
+                Leading the development of cutting-edge computer vision solutions for industrial quality inspection, 
+                with expertise in real-time defect detection, OCR systems, and client deployment strategies.
+            </p>
+            <div class="highlights">
+                <div class="highlight">
+                    Built VIN detection OCR pipeline outperforming industrial smart cameras through advanced preprocessing
+                </div>
+                <div class="highlight">
+                    Designed 2D thread depth detection system achieving micron-level precision with 95% faster performance
+                </div>
+                <div class="highlight">
+                    Developed zero-code logic builder tools enabling clients to create custom inspection rules
+                </div>
+                <div class="highlight">
+                    Implemented AutoLabel-based annotation reducing manual labeling effort by 40%
+                </div>
+                <div class="highlight">
+                    Mentored junior developers in PyQt, computer vision, and ML deployment strategies
+                </div>
+                <div class="highlight">
+                    Successfully deployed systems on NVIDIA Jetson and Intel NUC for edge AI applications
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="section">
+        <h2 class="section-title fade-in">Certifications</h2>
+        <div class="certifications-grid">
+            <div class="certification-card fade-in">
+                <div class="certification-title">Android Development Beginner Course</div>
+                <div class="certification-provider">Professional Development Program</div>
+                <div class="certification-period">April 2025 - Present</div>
+                <p class="certification-description">
+                    Currently pursuing Android development fundamentals to expand mobile development capabilities for upcoming projects.
+                </p>
+                <span class="certification-status ongoing">Ongoing</span>
+            </div>
+            <div class="certification-card fade-in">
+                <div class="certification-title">Data Science and Analytics Course</div>
+                <div class="certification-provider">Pedagogy Trainings</div>
+                <div class="certification-period">July 2023 - December 2023</div>
+                <p class="certification-description">
+                    Comprehensive training in data science methodologies, statistical analysis, and machine learning fundamentals. Located in Borivali, Maharashtra.
+                </p>
+                <span class="certification-status completed">Completed</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <h2 class="section-title fade-in">Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-category fade-in">
+                <h3>Programming</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">HTML5/CSS3</span>
+                    <span class="skill-tag">Flask</span>
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">MySQL</span>
+                </div>
+            </div>
+            <div class="skill-category fade-in">
+                <h3>Computer Vision</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">OpenCV</span>
+                    <span class="skill-tag">YOLO</span>
+                    <span class="skill-tag">Detectron2</span>
+                    <span class="skill-tag">SAM</span>
+                    <span class="skill-tag">PaddleOCR</span>
+                    <span class="skill-tag">PyTorch</span>
+                </div>
+            </div>
+            <div class="skill-category fade-in">
+                <h3>Specializations</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Edge AI</span>
+                    <span class="skill-tag">3D Vision</span>
+                    <span class="skill-tag">OCR/OCV</span>
+                    <span class="skill-tag">Real-time Systems</span>
+                    <span class="skill-tag">Micron-Level Accuracy</span>
+                </div>
+            </div>
+            <div class="skill-category fade-in">
+                <h3>Industries</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Manufacturing QC</span>
+                    <span class="skill-tag">Automotive</span>
+                    <span class="skill-tag">Medical Devices</span>
+                    <span class="skill-tag">Packaging</span>
+                    <span class="skill-tag">Marine Tools</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+        <div class="contact-content fade-in">
+            <h2>Let's Create Together</h2>
+            <p>Ready to transform your vision into reality? Let's discuss how we can build something extraordinary.</p>
+            <div class="contact-links">
+                <a href="mailto:sharmaayushajay025@gmail.com" class="contact-link">Email Me</a>
+                <a href="tel:+91-8329390211" class="contact-link">Call Me</a>
+                <a href="https://www.linkedin.com/in/ayush-sharma-a086552b8/" target="_blank" class="contact-link">LinkedIn</a>
+
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling
+        function scrollToSection(sectionId) {
+            window.scrollToSection(sectionId);
+        }
+
+        // Optimize animations for better performance
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        
+        if (!prefersReducedMotion.matches) {
+            // Parallax effect for hero section (only if motion is not reduced)
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const hero = document.querySelector('.hero-content');
+                if (hero) {
+                    const rate = scrolled * -0.5;
+                    hero.style.transform = `translateY(${rate}px)`;
+                }
+            });
+        }
+
+        // Lazy load images and optimize performance
+        if ('IntersectionObserver' in window) {
+            // Use Intersection Observer for better performance
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all fade-in elements
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+        } else {
+            // Fallback for older browsers
+            document.querySelectorAll('.fade-in').forEach(el => {
+                el.classList.add('visible');
+            });
+        }
+
+        // Dynamic navigation background with throttling
+        let ticking = false;
+        function updateNavigation() {
+            const nav = document.querySelector('.nav');
+            if (nav) {
+                if (window.scrollY > 100) {
+                    nav.style.background = 'rgba(255, 255, 255, 0.95)';
+                } else {
+                    nav.style.background = 'rgba(255, 255, 255, 0.8)';
+                }
+            }
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(updateNavigation);
+                ticking = true;
+            }
+        });
+
+        // Add interactive hover effects for cards with error handling
+        const cards = document.querySelectorAll('.experience-card, .certification-card, .education-card');
+        cards.forEach(card => {
+            if (card) {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translateY(-12px)';
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(-8px)';
+                });
+            }
+        });
+
+        // Remove the separate parallax scroll listener as it's now handled above
+
+        // Add error handling for smooth scrolling
+        window.scrollToSection = function(sectionId) {
+            try {
+                const element = document.getElementById(sectionId);
+                if (element) {
+                    element.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            } catch (error) {
+                console.warn('Smooth scrolling not supported, falling back to regular scroll');
+                const element = document.getElementById(sectionId);
+                if (element) {
+                    element.scrollIntoView();
+                }
+            }
+        };
+    </script>
+</body>
+</html>
