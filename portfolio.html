@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ayush Sharma - Software Developer</title>
+    <meta name="description" content="Computer Vision & AI Specialist crafting next-generation quality inspection systems">
+    <meta name="keywords" content="software developer, computer vision, AI, machine learning, quality inspection">
+    <meta name="author" content="Ayush Sharma">
+    <meta property="og:title" content="Ayush Sharma - Software Developer">
+    <meta property="og:description" content="Computer Vision & AI Specialist crafting next-generation quality inspection systems">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
     <style>
         * {
             margin: 0;
@@ -796,58 +803,106 @@
     <script>
         // Smooth scrolling
         function scrollToSection(sectionId) {
-            document.getElementById(sectionId).scrollIntoView({
-                behavior: 'smooth'
+            window.scrollToSection(sectionId);
+        }
+
+        // Optimize animations for better performance
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        
+        if (!prefersReducedMotion.matches) {
+            // Parallax effect for hero section (only if motion is not reduced)
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const hero = document.querySelector('.hero-content');
+                if (hero) {
+                    const rate = scrolled * -0.5;
+                    hero.style.transform = `translateY(${rate}px)`;
+                }
             });
         }
 
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+        // Lazy load images and optimize performance
+        if ('IntersectionObserver' in window) {
+            // Use Intersection Observer for better performance
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all fade-in elements
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
             });
-        }, observerOptions);
+        } else {
+            // Fallback for older browsers
+            document.querySelectorAll('.fade-in').forEach(el => {
+                el.classList.add('visible');
+            });
+        }
 
-        // Observe all fade-in elements
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Dynamic navigation background
-        window.addEventListener('scroll', () => {
+        // Dynamic navigation background with throttling
+        let ticking = false;
+        function updateNavigation() {
             const nav = document.querySelector('.nav');
-            if (window.scrollY > 100) {
-                nav.style.background = 'rgba(255, 255, 255, 0.95)';
-            } else {
-                nav.style.background = 'rgba(255, 255, 255, 0.8)';
+            if (nav) {
+                if (window.scrollY > 100) {
+                    nav.style.background = 'rgba(255, 255, 255, 0.95)';
+                } else {
+                    nav.style.background = 'rgba(255, 255, 255, 0.8)';
+                }
+            }
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(updateNavigation);
+                ticking = true;
             }
         });
 
-        // Add interactive hover effects for cards
-        document.querySelectorAll('.experience-card, .certification-card, .education-card').forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                card.style.transform = 'translateY(-12px)';
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'translateY(-8px)';
-            });
+        // Add interactive hover effects for cards with error handling
+        const cards = document.querySelectorAll('.experience-card, .certification-card, .education-card');
+        cards.forEach(card => {
+            if (card) {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translateY(-12px)';
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(-8px)';
+                });
+            }
         });
 
-        // Parallax effect for hero section
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero-content');
-            const rate = scrolled * -0.5;
-            hero.style.transform = `translateY(${rate}px)`;
-        });
+        // Remove the separate parallax scroll listener as it's now handled above
+
+        // Add error handling for smooth scrolling
+        window.scrollToSection = function(sectionId) {
+            try {
+                const element = document.getElementById(sectionId);
+                if (element) {
+                    element.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            } catch (error) {
+                console.warn('Smooth scrolling not supported, falling back to regular scroll');
+                const element = document.getElementById(sectionId);
+                if (element) {
+                    element.scrollIntoView();
+                }
+            }
+        };
     </script>
 </body>
 </html>
