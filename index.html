@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ayush Sharma - Software Developer</title>
-    <meta name="description" content="Computer Vision & AI Specialist crafting next-generation quality inspection systems">
+    <meta name="description" content="Professional Services Engineer & Computer Vision AI Specialist">
     <meta name="keywords" content="software developer, computer vision, AI, machine learning, quality inspection">
     <meta name="author" content="Ayush Sharma">
     <meta property="og:title" content="Ayush Sharma - Software Developer">
-    <meta property="og:description" content="Computer Vision & AI Specialist crafting next-generation quality inspection systems">
+    <meta property="og:description" content="Professional Services Engineer & Computer Vision AI Specialist">
     <meta property="og:type" content="website">
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
     <style>
@@ -26,7 +26,6 @@
             overflow-x: hidden;
         }
 
-        /* Grain Effect */
         body::before {
             content: '';
             position: fixed;
@@ -43,7 +42,6 @@
             z-index: 1;
         }
 
-        /* Navigation */
         .nav {
             position: fixed;
             top: 0;
@@ -88,7 +86,6 @@
             opacity: 0.7;
         }
 
-        /* Hero Section */
         .hero {
             height: 100vh;
             display: flex;
@@ -145,7 +142,6 @@
             transform: translateY(-2px);
         }
 
-        /* Sections */
         .section {
             padding: 120px 0;
             max-width: 1200px;
@@ -162,7 +158,6 @@
             color: #1d1d1f;
         }
 
-        /* About Section */
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -214,7 +209,6 @@
             color: #86868b;
         }
 
-        /* Education Section */
         .education-card {
             background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%);
             border-radius: 24px;
@@ -283,7 +277,6 @@
             margin-top: 16px;
         }
 
-        /* Experience Section */
         .experience-card {
             background: #f5f5f7;
             border-radius: 24px;
@@ -321,6 +314,7 @@
             font-size: 16px;
             color: #86868b;
             font-weight: 500;
+            white-space: nowrap;
         }
 
         .experience-description {
@@ -344,7 +338,110 @@
             border-left: 4px solid #1d1d1f;
         }
 
-        /* Certifications Section */
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+            gap: 32px;
+        }
+
+        .project-card {
+            background: #f5f5f7;
+            border-radius: 24px;
+            padding: 48px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #1d1d1f 0%, #86868b 100%);
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 16px;
+        }
+
+        .project-description {
+            font-size: 15px;
+            color: #86868b;
+            margin-bottom: 24px;
+            line-height: 1.7;
+        }
+
+        .project-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 24px;
+            flex: 1;
+        }
+
+        .project-highlight {
+            background: white;
+            padding: 12px 16px;
+            border-radius: 10px;
+            font-size: 14px;
+            color: #1d1d1f;
+            border-left: 3px solid #1d1d1f;
+        }
+
+        .project-capability {
+            font-size: 14px;
+            color: #86868b;
+            font-style: italic;
+            padding: 16px 0;
+            border-top: 1px solid rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+        }
+
+        .project-capability strong {
+            color: #1d1d1f;
+            font-style: normal;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #1d1d1f;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            align-self: flex-start;
+        }
+
+        .project-link:hover {
+            background: #424245;
+            transform: translateY(-2px);
+        }
+
+        .project-link svg {
+            width: 16px;
+            height: 16px;
+            fill: white;
+        }
+
         .certifications-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -403,7 +500,6 @@
 
         .certification-status {
             display: inline-block;
-            background: #1d1d1f;
             color: white;
             padding: 6px 16px;
             border-radius: 20px;
@@ -414,15 +510,10 @@
             margin-top: 16px;
         }
 
-        .certification-status.ongoing {
-            background: #007AFF;
-        }
-
         .certification-status.completed {
             background: #34C759;
         }
 
-        /* Skills Section */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -462,7 +553,6 @@
             font-weight: 500;
         }
 
-        /* Contact Section */
         .contact {
             background: #f5f5f7;
             text-align: center;
@@ -511,16 +601,9 @@
             transform: translateY(-2px);
         }
 
-        /* Animations */
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .fade-in {
@@ -534,42 +617,17 @@
             transform: translateY(0);
         }
 
-        /* Mobile Responsiveness */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 48px;
-            }
-
-            .stats {
-                grid-template-columns: 1fr;
-            }
-
-            .experience-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .education-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .highlights {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-links {
-                flex-direction: column;
-                align-items: center;
-            }
+            .nav-links { display: none; }
+            .about-grid { grid-template-columns: 1fr; gap: 48px; }
+            .stats { grid-template-columns: 1fr; }
+            .experience-header { flex-direction: column; align-items: flex-start; }
+            .education-header { flex-direction: column; align-items: flex-start; }
+            .highlights { grid-template-columns: 1fr; }
+            .contact-links { flex-direction: column; align-items: center; }
+            .projects-grid { grid-template-columns: 1fr; }
         }
 
-        /* Scroll indicator */
         .scroll-indicator {
             position: absolute;
             bottom: 30px;
@@ -602,7 +660,6 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="nav">
         <div class="nav-container">
             <div class="logo">Ayush Sharma</div>
@@ -610,6 +667,7 @@
                 <li><a onclick="scrollToSection('about')">About</a></li>
                 <li><a onclick="scrollToSection('education')">Education</a></li>
                 <li><a onclick="scrollToSection('experience')">Experience</a></li>
+                <li><a onclick="scrollToSection('projects')">Projects</a></li>
                 <li><a onclick="scrollToSection('certifications')">Certifications</a></li>
                 <li><a onclick="scrollToSection('skills')">Skills</a></li>
                 <li><a onclick="scrollToSection('contact')">Contact</a></li>
@@ -621,8 +679,8 @@
     <section class="hero">
         <div class="hero-content">
             <h1>Ayush Sharma</h1>
-            <div class="hero-subtitle">Software Developer</div>
-            <p class="hero-description">Computer Vision & AI Specialist crafting next-generation quality inspection systems with micron-level precision and 95% faster performance</p>
+            <div class="hero-subtitle">Associate Professional Services Engineer & Software Developer</div>
+            <p class="hero-description">AI-focused Professional Services Engineer with 1.7+ years of experience delivering enterprise AI solutions, including computer vision, RAG, and conversational AI systems. Skilled in deploying NLP pipelines, CRM/API integrations, and optimizing AI applications from edge vision systems to knowledge assistants and chatbots.</p>
             <button class="cta-button" onclick="scrollToSection('about')">Discover My Work</button>
         </div>
         <div class="scroll-indicator"></div>
@@ -634,9 +692,9 @@
         <div class="about-grid">
             <div class="about-text fade-in">
                 <h3>Innovating Through Technology</h3>
-                <p>Dynamic Software Developer with specialized experience in computer vision and AI-based quality inspection systems. I transform complex technical challenges into elegant, efficient solutions that reduce manual effort by 40% while improving accuracy.</p>
-                <p>From real-time defect detection to industrial automation, I've developed vision-based systems that helped acquire and retain 2-4 clients, with expertise in deploying robust CV pipelines across manufacturing, automotive, and medical device industries.</p>
-                <p>My work focuses on practical implementations that deliver immediate business value - whether it's developing zero-code logic builder tools for clients or optimizing algorithms to reduce latency by 30%.</p>
+                <p>Results-driven Professional Services Engineer and Software Developer with 1.7+ years of experience delivering AI-powered solutions, computer vision systems, and intelligent automation for enterprise and industrial clients.</p>
+                <p>From configuring NLP, RAG, and conversational AI pipelines at NiCE Ltd to deploying real-time defect detection systems on edge devices, I bring end-to-end expertise across the full AI stack — from model development to client deployment.</p>
+                <p>My work focuses on practical implementations that deliver immediate business value — whether it's building zero-code inspection tools, optimizing algorithm latency by 30%, or architecting knowledge assistant engines for enterprise clients.</p>
             </div>
             <div class="stats fade-in">
                 <div class="stat">
@@ -679,47 +737,101 @@
     <!-- Experience Section -->
     <section id="experience" class="section">
         <h2 class="section-title fade-in">Experience</h2>
+
+        <div class="experience-card fade-in">
+            <div class="experience-header">
+                <div>
+                    <div class="experience-title">Associate Professional Services Engineer</div>
+                    <div class="experience-company">NiCE Ltd</div>
+                </div>
+                <div class="experience-period">Dec 2025 – Present</div>
+            </div>
+            <p class="experience-description">
+                Configuring and deploying enterprise-grade AI solutions including NLP, TTS, and conversational AI systems.
+                Leading bot development and knowledge management initiatives for enterprise clients with a focus on intelligent automation.
+            </p>
+            <div class="highlights">
+                <div class="highlight">Configure, program, and develop NiCE Livevox solutions including AI, NLU, ACD, IVR, ASR, and CRM integrations</div>
+                <div class="highlight">Lead design and development of multiple AI and bot applications ensuring alignment with customer requirements and industry best practices</div>
+                <div class="highlight">Optimize and maintain multiple AI bots including both generative and legacy models</div>
+                <div class="highlight">Partner with customers on knowledge management curation and content strategy</div>
+                <div class="highlight">Implement and enhance AI-driven services such as knowledge assistant engines and conversational intelligence</div>
+            </div>
+        </div>
+
         <div class="experience-card fade-in">
             <div class="experience-header">
                 <div>
                     <div class="experience-title">Software Developer</div>
                     <div class="experience-company">CVIT Solution Pvt. Ltd. - Pune, Maharashtra</div>
                 </div>
-                <div class="experience-period">Aug 2024 – Present</div>
+                <div class="experience-period">Aug 2024 – Nov 2026</div>
             </div>
             <p class="experience-description">
-                Leading the development of cutting-edge computer vision solutions for industrial quality inspection, 
+                Leading the development of cutting-edge computer vision solutions for industrial quality inspection,
                 with expertise in real-time defect detection, OCR systems, and client deployment strategies.
             </p>
             <div class="highlights">
-                <div class="highlight">
-                    Built VIN detection OCR pipeline outperforming industrial smart cameras through advanced preprocessing
-                </div>
-                <div class="highlight">
-                    Designed 2D thread depth detection system achieving micron-level precision with 95% faster performance
-                </div>
-                <div class="highlight">
-                    Developed zero-code logic builder tools enabling clients to create custom inspection rules
-                </div>
-                <div class="highlight">
-                    Implemented AutoLabel-based annotation reducing manual labeling effort by 40%
-                </div>
-                <div class="highlight">
-                    Mentored junior developers in PyQt, computer vision, and ML deployment strategies
-                </div>
-                <div class="highlight">
-                    Successfully deployed systems on NVIDIA Jetson and Intel NUC for edge AI applications
-                </div>
-                <div class="highlight">
-                    Developed dynamic dashboards using PyQt Designer and Flask for interactive data visualization
-                </div>
-                <div class="highlight">
-                    Conducted client-site visits for data collection, feasibility studies, and system deployments
-                </div>
-                <div class="highlight">
-                    Resolved critical production issues during live inspection audits under tight deadlines
-                </div>
+                <div class="highlight">Built VIN detection OCR pipeline outperforming industrial smart cameras through advanced preprocessing</div>
+                <div class="highlight">Designed 2D thread depth detection system achieving micron-level precision with 95% faster performance</div>
+                <div class="highlight">Developed zero-code logic builder tools enabling clients to create custom inspection rules</div>
+                <div class="highlight">Implemented AutoLabel-based annotation reducing manual labeling effort by 40%</div>
+                <div class="highlight">Mentored junior developers in PyQt, computer vision, and ML deployment strategies</div>
+                <div class="highlight">Successfully deployed systems on NVIDIA Jetson and Intel NUC for edge AI applications</div>
+                <div class="highlight">Developed dynamic dashboards using PyQt Designer and Flask for interactive data visualization</div>
+                <div class="highlight">Conducted client-site visits for data collection, feasibility studies, and system deployments</div>
+                <div class="highlight">Resolved critical production issues during live inspection audits under tight deadlines</div>
             </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <h2 class="section-title fade-in">Projects</h2>
+        <div class="projects-grid">
+
+            <div class="project-card fade-in">
+                <div class="project-title">RAG Chat System for PDFs</div>
+                <p class="project-description">
+                    Designed and implemented a Retrieval-Augmented Generation pipeline to enable intelligent
+                    question-answering over custom PDF documents, with conversational memory and local LLM support
+                    for privacy-first deployments.
+                </p>
+                <div class="project-highlights">
+                    <div class="project-highlight">Document chunking using semantic text splitting with optimized chunk size &amp; overlap strategy</div>
+                    <div class="project-highlight">Embedding generation for dense vector representation + similarity search for context retrieval</div>
+                    <div class="project-highlight">Context-aware LLM prompting for grounded, hallucination-minimized responses</div>
+                    <div class="project-highlight">Conversational memory for multi-turn contextual understanding</div>
+                    <div class="project-highlight">Works with local LLMs for offline &amp; privacy-first use cases</div>
+                </div>
+                <p class="project-capability"><strong>Capability:</strong> Handles domain-specific Q&amp;A, scalable to large document sets, minimizes hallucination via retrieval grounding.</p>
+                <a href="https://github.com/tomalexander025/pdf-rag-chat" target="_blank" class="project-link">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                    View on GitHub
+                </a>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-title">MongoLLM-ChatBot</div>
+                <p class="project-description">
+                    Architected a persistent AI-powered chatbot system combining vector search for semantic retrieval
+                    with structured MongoDB storage for chat history, enabling multi-session intelligent conversations
+                    over documents.
+                </p>
+                <div class="project-highlights">
+                    <div class="project-highlight">Hybrid retrieval logic separating conversational memory from knowledge base embeddings</div>
+                    <div class="project-highlight">Dynamic prompt injection using retrieved documents + full conversation history</div>
+                    <div class="project-highlight">Debugged embedding mismatch and retrieval pipeline errors for consistent responses</div>
+                    <div class="project-highlight">Optimized database queries and restructured retrieval flow for improved relevance</div>
+                    <div class="project-highlight">Production-ready architecture with multi-session chat persistence</div>
+                </div>
+                <p class="project-capability"><strong>Capability:</strong> Supports multi-session chat persistence, scalable document storage, and production-ready retrieval logic.</p>
+                <a href="https://github.com/tomalexander025/MongoLLM-ChatBot" target="_blank" class="project-link">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                    View on GitHub
+                </a>
+            </div>
+
         </div>
     </section>
 
@@ -727,15 +839,6 @@
     <section id="certifications" class="section">
         <h2 class="section-title fade-in">Certifications</h2>
         <div class="certifications-grid">
-            <div class="certification-card fade-in">
-                <div class="certification-title">Android Development Beginner Course</div>
-                <div class="certification-provider">Professional Development Program</div>
-                <div class="certification-period">April 2025 - Present</div>
-                <p class="certification-description">
-                    Currently pursuing Android development fundamentals to expand mobile development capabilities for upcoming projects.
-                </p>
-                <span class="certification-status ongoing">Ongoing</span>
-            </div>
             <div class="certification-card fade-in">
                 <div class="certification-title">Data Science and Analytics Course</div>
                 <div class="certification-provider">Pedagogy Trainings</div>
@@ -753,6 +856,17 @@
         <h2 class="section-title fade-in">Skills</h2>
         <div class="skills-grid">
             <div class="skill-category fade-in">
+                <h3>AI & Machine Learning</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">LLMs</span>
+                    <span class="skill-tag">RAG Architecture</span>
+                    <span class="skill-tag">NLP / NLU</span>
+                    <span class="skill-tag">Generative AI</span>
+                    <span class="skill-tag">Conversational AI</span>
+                    <span class="skill-tag">Prompt Engineering</span>
+                </div>
+            </div>
+            <div class="skill-category fade-in">
                 <h3>Programming</h3>
                 <div class="skill-tags">
                     <span class="skill-tag">Python</span>
@@ -760,8 +874,10 @@
                     <span class="skill-tag">HTML5/CSS3</span>
                     <span class="skill-tag">Flask</span>
                     <span class="skill-tag">React</span>
+                    <span class="skill-tag">PyQt</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">NoSQL</span>
                     <span class="skill-tag">R Language</span>
-                    <span class="skill-tag">MySQL</span>
                 </div>
             </div>
             <div class="skill-category fade-in">
@@ -772,8 +888,21 @@
                     <span class="skill-tag">Detectron2</span>
                     <span class="skill-tag">SAM</span>
                     <span class="skill-tag">PaddleOCR</span>
+                    <span class="skill-tag">DocTR</span>
+                    <span class="skill-tag">Tesseract</span>
                     <span class="skill-tag">PyTorch</span>
                     <span class="skill-tag">TensorFlow</span>
+                </div>
+            </div>
+            <div class="skill-category fade-in">
+                <h3>AI Systems & Integration</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Vector Databases</span>
+                    <span class="skill-tag">Embedding Models</span>
+                    <span class="skill-tag">Similarity Search</span>
+                    <span class="skill-tag">ACD / IVR / ASR</span>
+                    <span class="skill-tag">CRM Integration</span>
+                    <span class="skill-tag">API Integration</span>
                 </div>
             </div>
             <div class="skill-category fade-in">
@@ -805,6 +934,7 @@
                     <span class="skill-tag">Medical Devices</span>
                     <span class="skill-tag">Packaging</span>
                     <span class="skill-tag">Marine Tools</span>
+                    <span class="skill-tag">Enterprise AI</span>
                 </div>
             </div>
             <div class="skill-category fade-in">
@@ -830,111 +960,63 @@
                 <a href="mailto:sharmaayushajay025@gmail.com" class="contact-link">Email Me</a>
                 <a href="tel:+91-8329390211" class="contact-link">Call Me</a>
                 <a href="https://www.linkedin.com/in/ayush-sharma-a086552b8/" target="_blank" class="contact-link">LinkedIn</a>
+                <a href="https://github.com/tomalexander025" target="_blank" class="contact-link">GitHub</a>
             </div>
         </div>
     </section>
 
     <script>
-        // Smooth scrolling
-        function scrollToSection(sectionId) {
-            window.scrollToSection(sectionId);
-        }
-
-        // Optimize animations for better performance
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-        
+
         if (!prefersReducedMotion.matches) {
-            // Parallax effect for hero section (only if motion is not reduced)
             window.addEventListener('scroll', () => {
                 const scrolled = window.pageYOffset;
                 const hero = document.querySelector('.hero-content');
                 if (hero) {
-                    const rate = scrolled * -0.5;
-                    hero.style.transform = `translateY(${rate}px)`;
+                    hero.style.transform = `translateY(${scrolled * -0.5}px)`;
                 }
             });
         }
 
-        // Lazy load images and optimize performance
         if ('IntersectionObserver' in window) {
-            // Use Intersection Observer for better performance
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
                     }
                 });
-            }, observerOptions);
+            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-            // Observe all fade-in elements
-            document.querySelectorAll('.fade-in').forEach(el => {
-                observer.observe(el);
-            });
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
         } else {
-            // Fallback for older browsers
-            document.querySelectorAll('.fade-in').forEach(el => {
-                el.classList.add('visible');
-            });
+            document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
         }
 
-        // Dynamic navigation background with throttling
         let ticking = false;
-        function updateNavigation() {
-            const nav = document.querySelector('.nav');
-            if (nav) {
-                if (window.scrollY > 100) {
-                    nav.style.background = 'rgba(255, 255, 255, 0.95)';
-                } else {
-                    nav.style.background = 'rgba(255, 255, 255, 0.8)';
-                }
-            }
-            ticking = false;
-        }
-
         window.addEventListener('scroll', () => {
             if (!ticking) {
-                requestAnimationFrame(updateNavigation);
+                requestAnimationFrame(() => {
+                    const nav = document.querySelector('.nav');
+                    if (nav) {
+                        nav.style.background = window.scrollY > 100
+                            ? 'rgba(255, 255, 255, 0.95)'
+                            : 'rgba(255, 255, 255, 0.8)';
+                    }
+                    ticking = false;
+                });
                 ticking = true;
             }
         });
 
-        // Add interactive hover effects for cards with error handling
-        const cards = document.querySelectorAll('.experience-card, .certification-card, .education-card');
-        cards.forEach(card => {
-            if (card) {
-                card.addEventListener('mouseenter', () => {
-                    card.style.transform = 'translateY(-12px)';
-                });
-                
-                card.addEventListener('mouseleave', () => {
-                    card.style.transform = 'translateY(-8px)';
-                });
-            }
-        });
-
-        // Remove the separate parallax scroll listener as it's now handled above
-
-        // Add error handling for smooth scrolling
         window.scrollToSection = function(sectionId) {
             try {
                 const element = document.getElementById(sectionId);
                 if (element) {
-                    element.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             } catch (error) {
-                console.warn('Smooth scrolling not supported, falling back to regular scroll');
                 const element = document.getElementById(sectionId);
-                if (element) {
-                    element.scrollIntoView();
-                }
+                if (element) element.scrollIntoView();
             }
         };
     </script>
